@@ -112,7 +112,7 @@ module ActiveRecord
 
         def cidr_to_string(object)
           if IPAddr === object
-            "#{object.to_s}/#{object.instance_variable_get(:@mask_addr).to_s(2).count('1')}"
+            "#{object.to_unmasked_host_string}/#{object.instance_variable_get(:@mask_addr).to_s(2).count('1')}"
           else
             object
           end
